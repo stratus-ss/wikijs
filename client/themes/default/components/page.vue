@@ -11,9 +11,22 @@
       :temporary='$vuetify.breakpoint.smAndDown'
       v-model='navShown'
       :right='$vuetify.rtl'
+      :width='currentNavWidth'
+      :style='navTransitionStyle'
       )
-      vue-scroll(:ops='scrollStyle')
-        nav-sidebar(:color='$vuetify.theme.dark ? `grey darken-4-d4` : `primary`', :items='sidebarDecoded', :nav-mode='navMode')
+      .nav-hover-wrapper(
+        @mouseenter='handleNavHover(true)'
+        @mouseleave='handleNavHover(false)'
+        )
+        vue-scroll(:ops='scrollStyle')
+          nav-sidebar(:color='$vuetify.theme.dark ? `grey darken-4-d4` : `primary`', :items='sidebarDecoded', :nav-mode='navMode')
+      .nav-resize-handle(
+        v-if='$vuetify.breakpoint.mdAndUp && navShown'
+        :class='$vuetify.rtl ? `rtl` : ``'
+        @mousedown='startResize'
+        @mouseenter='handleNavHover(true)'
+        :aria-label='$t(`common:header.resizeNavigation`)'
+      )
 
     v-fab-transition(v-if='navMode !== `NONE`')
       v-btn(
@@ -497,6 +510,10 @@ export default {
       navExpanded: false,
       upBtnShown: false,
       pageEditFab: false,
+      navWidth: 256,
+      isResizing: false,
+      isNavHovered: false,
+      expandedNavWidth: 450,
       scrollOpts: {
         duration: 1500,
         offset: 0,
@@ -528,6 +545,15 @@ export default {
     commentsCount: get('page/commentsCount'),
     commentsPerms: get('page/effectivePermissions@comments'),
     editShortcutsObj: get('page/editShortcuts'),
+    currentNavWidth () {
+      if (this.isResizing) {
+        return this.navWidth
+      }
+      return this.isNavHovered ? this.expandedNavWidth : this.navWidth
+    },
+    navTransitionStyle () {
+      return this.isResizing ? '' : 'transition: width 0.3s ease;'
+    },
     rating: {
       get () {
         return 3.5
@@ -600,6 +626,12 @@ export default {
     }
 
     this.$store.set('page/mode', 'view')
+
+    // Load saved navigation width from localStorage
+    const savedWidth = window.localStorage.getItem('navWidth')
+    if (savedWidth) {
+      this.navWidth = parseInt(savedWidth, 10)
+    }
   },
   mounted () {
     if (this.$vuetify.theme.dark) {
@@ -703,6 +735,44 @@ export default {
       if (focusNewComment) {
         document.querySelector('#discussion-new').focus()
       }
+    },
+    handleNavHover (isHovering) {
+      if (!this.isResizing && this.$vuetify.breakpoint.mdAndUp) {
+        this.isNavHovered = isHovering
+      }
+    },
+    startResize (event) {
+      this.isResizing = true
+      this.isNavHovered = false
+      const startX = event.clientX
+      const startWidth = this.navWidth
+      const isRtl = this.$vuetify.rtl
+
+      const handleMouseMove = (e) => {
+        if (!this.isResizing) return
+        
+        const delta = isRtl ? startX - e.clientX : e.clientX - startX
+        let newWidth = startWidth + delta
+        
+        // Constrain width between 200px and 600px
+        newWidth = Math.max(200, Math.min(600, newWidth))
+        
+        this.navWidth = newWidth
+      }
+
+      const handleMouseUp = () => {
+        this.isResizing = false
+        window.localStorage.setItem('navWidth', this.navWidth.toString())
+        document.removeEventListener('mousemove', handleMouseMove)
+        document.removeEventListener('mouseup', handleMouseUp)
+        document.body.style.cursor = ''
+        document.body.style.userSelect = ''
+      }
+
+      document.addEventListener('mousemove', handleMouseMove)
+      document.addEventListener('mouseup', handleMouseUp)
+      document.body.style.cursor = 'ew-resize'
+      document.body.style.userSelect = 'none'
     }
   }
 }
@@ -786,6 +856,42 @@ export default {
         border-bottom-right-radius: 5px;
       }
     }
+  }
+}
+
+.nav-hover-wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  
+  // Subtle visual indicator when hover is active
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+}
+
+.nav-resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  cursor: ew-resize;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  z-index: 999;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &.rtl {
+    right: auto;
+    left: 0;
   }
 }
 

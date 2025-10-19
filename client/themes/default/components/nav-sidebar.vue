@@ -370,8 +370,11 @@ export default {
 .v-treeview{
   .tree-item {
     font-weight: 500;
-    line-height: 1rem;
+    line-height: 1.2rem;
     font-size: 0.8rem;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   a {
     text-decoration: none;
@@ -380,6 +383,18 @@ export default {
     a {
       color: white;
     }
+  }
+  .v-treeview-node__label {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .v-treeview-node__content {
+    min-height: 32px;
+    height: auto !important;
+  }
+  .v-treeview-node__root {
+    min-height: 32px;
   }
 }
 </style>
