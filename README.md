@@ -8,16 +8,14 @@
 [![Release](https://img.shields.io/github/release/Requarks/wiki.svg?style=flat&maxAge=3600)](https://github.com/Requarks/wiki/releases)
 [![License](https://img.shields.io/badge/license-AGPLv3-blue.svg?style=flat)](https://github.com/requarks/wiki/blob/master/LICENSE)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-green.svg?style=flat&logo=javascript&logoColor=white)](http://standardjs.com/)
+[![Build + Publish](https://github.com/Requarks/wiki/actions/workflows/build.yml/badge.svg)](https://github.com/Requarks/wiki/actions/workflows/build.yml)  
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/ngpixel?logo=github&color=ea4aaa)](https://github.com/users/NGPixel/sponsorship)
+[![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/wikijs?label=backers&color=218bff&logo=opencollective&logoColor=white)](https://opencollective.com/wikijs)
 [![Downloads](https://img.shields.io/github/downloads/Requarks/wiki/total.svg?style=flat&logo=github)](https://github.com/Requarks/wiki/releases)
 [![Docker Pulls](https://img.shields.io/docker/pulls/requarks/wiki.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/requarks/wiki/)  
-[![Build + Publish](https://github.com/Requarks/wiki/actions/workflows/build.yml/badge.svg)](https://github.com/Requarks/wiki/actions/workflows/build.yml)
-[![Huntr](https://img.shields.io/badge/security%20bounty-disclose-brightgreen.svg?style=flat&logo=cachet&logoColor=white)](https://huntr.dev/bounties/disclose)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/ngpixel?logo=github&color=ea4aaa)](https://github.com/users/NGPixel/sponsorship)
-[![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/wikijs?label=backers&color=218bff&logo=opencollective&logoColor=white)](https://opencollective.com/wikijs)  
-[![Chat on Slack](https://img.shields.io/badge/slack-requarks-CC2B5E.svg?style=flat&logo=slack)](https://wiki.requarks.io/slack)
-[![Follow on Twitter](https://img.shields.io/badge/twitter-%40requarks-blue.svg?style=flat&logo=twitter&logoColor=white)](https://twitter.com/requarks)
-[![Follow on Telegram](https://img.shields.io/badge/telegram-%40wiki__js-blue.svg?style=flat&logo=telegram)](https://t.me/wiki_js)
 [![Chat on Discord](https://img.shields.io/badge/discord-join-8D96F6.svg?style=flat&logo=discord&logoColor=white)](https://discord.gg/rcxt9QS2jd)
+[![Follow on Bluesky](https://img.shields.io/badge/bluesky-%40js.wiki-blue.svg?style=flat&logo=bluesky&logoColor=white)](https://bsky.app/profile/js.wiki)
+[![Follow on Telegram](https://img.shields.io/badge/telegram-%40wiki__js-blue.svg?style=flat&logo=telegram)](https://t.me/wiki_js)
 [![Reddit](https://img.shields.io/badge/reddit-%2Fr%2Fwikijs-orange?logo=reddit&logoColor=white)](https://www.reddit.com/r/wikijs/)
 
 ##### A modern, lightweight and powerful wiki app built on NodeJS
@@ -31,7 +29,7 @@
 - [Demo](https://docs.requarks.io/demo)
 - [Changelog](https://github.com/requarks/wiki/releases)
 - [Feature Requests](https://feedback.js.wiki/wiki)
-- [Chat with us on Slack](https://wiki.requarks.io/slack)
+- Chat with us on [Discord](https://discord.gg/rcxt9QS2jd)
 - [Translations](https://docs.requarks.io/dev/translations) *(We need your help!)*
 - [E2E Testing Results](https://dashboard.cypress.io/projects/r7qxah/runs)
 - [Special Thanks](#special-thanks)
@@ -93,68 +91,74 @@ Support this project by becoming a sponsor. Your name will show up in the Contri
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://acceleanation.com/" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/41210718?s=200&v=4">
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://github.com/alexksso" target="_blank">
           Alexander Casassovici<br />(@alexksso)
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://github.com/broxen" target="_blank">
           Broxen<br />(@broxen)
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://github.com/xDacon" target="_blank">
           Dacon<br />(@xDacon)
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
+        <a href="https://github.com/DonNabla" target="_blank">
+          Maxime Pierre<br />(@DonNabla)
+        </a>
+      </td>
+      <td align="center" valign="middle" width="130">
         <a href="https://github.com/GigabiteLabs" target="_blank">
           <img src="https://static.requarks.io/sponsors/gigabitelabs-148x129.png">
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://www.hostwiki.com/" target="_blank">
           <img src="https://cdn.js.wiki/images/sponsors/hostwiki.png">
         </a>
       </td>
     </tr>
     <tr>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://github.com/JayDaley" target="_blank">
           Jay Daley<br />(@JayDaley)
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://github.com/idokka" target="_blank">
           Oleksii<br />(@idokka)
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://www.openhost-network.com/" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/114218287?s=200&v=4">
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
         <a href="https://www.prevo.ch/" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/114394792?v=4">
         </a>
       </td>
-      <td align="center" valign="middle" width="148">
+      <td align="center" valign="middle" width="130">
+        <a href="https://github.com/shanekearney" target="_blank">
+          Shane Kearney<br />(@shanekearney)
+        </a>
+      </td>
+      <td align="center" valign="middle" width="130">
         <a href="http://www.taicep.org/" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/160072306?v=4">
         </a>
       </td>
-      <td align="center" valign="middle" colspan="1">
-        <a href="https://github.com/sponsors/NGPixel" target="_blank">
-          <img src="https://static.requarks.io/sponsors/become-148x72.png">
-        </a>
-      </td>
+      <td align="center" valign="middle" width="130"></td>
     </tr>
   </tbody>
 </table>
